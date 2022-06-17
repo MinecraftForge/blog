@@ -9,9 +9,9 @@ theme = "mainroad"
 
 
 [Params]
-  description = "John Doe's Personal blog about everything" # Description of your site
+  description = "Minecraft Forge blogs" # Description of your site
   opengraph = true
-  twitter_cards = false
+  twitter_cards = true
   readmore = false # Show "Read more" button in list if true
   authorbox = true
   pager = true
