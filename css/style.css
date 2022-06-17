@@ -55,7 +55,7 @@ body {
 .container {
 	position: relative;
 	width: 100%;
-	max-width: 1080px;
+	max-width: 1920px;
 	margin: 0 auto;
 }
 
@@ -83,8 +83,8 @@ body {
 }
 
 .sidebar {
-	-webkit-flex: 1 0 31.66%;
-	flex: 1 0 31.66%;
+	-webkit-flex: 1 0 15%;
+	flex: 1 0 15%;
 	-webkit-order: 2;
 	order: 2;
 	min-width: 0;
