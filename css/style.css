@@ -48,7 +48,7 @@ body {
 	font-size: .875rem;
 	line-height: 1.6;
 	word-wrap: break-word;
-	background: #f7f7f7;
+	background: #eff1f3;
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -134,7 +134,7 @@ textarea {
 
 .btn:hover {
 	color: #fff;
-	background: #e22d30;
+	background: #e6b784;
 }
 
 /* Animation */
@@ -193,7 +193,7 @@ a {
 }
 
 a:hover {
-	color: #e22d30;
+	color: #e6b784;
 }
 
 hr {
@@ -299,7 +299,7 @@ blockquote {
 	margin: 0 0 20px;
 	margin: 0 0 1.25rem;
 	line-height: 1.6;
-	border-left: 5px solid #e22d30;
+	border-left: 5px solid #e6b784;
 }
 
 blockquote p:last-child {
@@ -383,10 +383,17 @@ select {
 
 .logo {
 	padding: 25px;
+	background-color: #26303d;
+	color: #f9f7f7;
 }
 
 .logo__link {
 	display: inline-block;
+	color: #f9f7f7;
+}
+
+a:visited .logo__link {
+        color: #f9f7f7;
 }
 
 .logo__item {
@@ -396,6 +403,7 @@ select {
 
 .logo__img {
 	max-height: 256px;
+	width: 300px;
 }
 
 .logo__text {
@@ -407,8 +415,8 @@ select {
 }
 
 .logo--mixed .logo__img {
-	max-width: 128px;
-	max-height: 128px;
+	max-width: 300px;
+	max-height: 256px;
 }
 
 .logo--mixed .logo__text {
@@ -420,7 +428,6 @@ select {
 	font-size: 2rem;
 	font-weight: 700;
 	line-height: 1;
-	color: #000;
 }
 
 .logo__tagline {
@@ -431,14 +438,14 @@ select {
 	font-size: .875rem;
 	font-weight: 700;
 	line-height: 1;
-	color: #e22d30;
+	color: #e6b784;
 	border-top: 1px solid #ebebeb;
 }
 
 .divider {
 	height: 5px;
 	margin: 0;
-	background: #e22d30;
+	background: #e6b784;
 	border: 0;
 }
 
@@ -475,7 +482,7 @@ select {
 }
 
 :focus > .menu__btn-title {
-	box-shadow: inset 0 0 1px 3px #e22d30;
+	box-shadow: inset 0 0 1px 3px #e6b784;
 }
 
 button:not(:-moz-focusring):focus > .menu__btn-title {
@@ -488,16 +495,24 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 }
 
 .js .menu__btn--active {
-	color: #e22d30;
+	color: #e6b784;
 }
 
 .menu__list {
 	list-style: none;
-	background: #2a2a2a;
+	background: #26303d;
+}
+
+.menu__item--active .menu__text {
+	color: #26303d;
 }
 
 .menu__item:hover {
-	background: #e22d30;
+	background: #e6b784;
+}
+
+.menu__item:hover .menu__text {
+	color: #26303d;
 }
 
 .menu__item:first-child {
@@ -505,7 +520,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 }
 
 .menu__item--active {
-	background: #e22d30;
+	background: #e6b784;
 }
 
 .menu__link {
@@ -546,7 +561,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 
 @media screen and (min-width: 767px) {
 	.menu {
-		border-bottom: 5px solid #e22d30;
+		border-bottom: 5px solid #e6b784;
 	}
 
 	.menu__btn {
@@ -600,7 +615,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 }
 
 .meta a:hover {
-	color: #e22d30;
+	color: #e6b784;
 }
 
 .meta__item {
@@ -657,13 +672,13 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 .warning a,
 .authorbox__description a {
 	font-weight: 700;
-	color: #e22d30;
+	color: #e6b784;
 }
 
 .content a:hover,
 .warning a:hover,
 .authorbox__description a:hover {
-	color: #e22d30;
+	color: #e6b784;
 	text-decoration: underline;
 }
 
@@ -745,7 +760,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 }
 
 .tags__item:hover {
-	background: #e22d30;
+	background: #e6b784;
 }
 
 .tags__link,
@@ -760,7 +775,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	height: 32px;
 	padding: 8px;
 	margin-right: 6px;
-	background: #e22d30;
+	background: #e6b784;
 	fill: #fff;
 }
 
@@ -822,7 +837,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 .toc__menu a {
 	display: block;
 	padding: 5px 10px;
-	color: #e22d30;
+	color: #e6b784;
 	border-bottom: 1px solid #ebebeb;
 }
 
@@ -910,7 +925,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 .pagination__item:hover,
 .pagination__item--current {
 	color: #fff;
-	background: #e22d30;
+	background: #e6b784;
 }
 
 /* Pager (prev/next links) navigation */
@@ -1032,7 +1047,7 @@ input[type=reset] {
 
 input[type=submit]:hover,
 input[type=reset]:hover {
-	background: #e22d30;
+	background: #e6b784;
 }
 
 textarea {
@@ -1061,7 +1076,7 @@ textarea {
 	font-size: 16px;
 	font-size: 1rem;
 	text-transform: uppercase;
-	border-bottom: 3px solid #e22d30;
+	border-bottom: 3px solid #e6b784;
 }
 
 .widget__item {
@@ -1150,7 +1165,7 @@ textarea {
 
 .widget-languages__link:hover .widget-languages__link-btn {
 	color: #fff;
-	background: #e22d30;
+	background: #e6b784;
 }
 
 .widget-languages__link-btn {
@@ -1163,8 +1178,8 @@ textarea {
 	font-size: 12px;
 	font-size: .75rem;
 	color: #999;
-	background: #2a2a2a;
-	border-top: 3px solid #999;
+	background: #26303d;
+	border-top: 3px solid #de9e59;
 }
 
 .footer__container {
