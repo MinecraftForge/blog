@@ -1,4 +1,4 @@
 baseURL = 'https://blogtest.minecraftforge.net/'
 languageCode = 'en-us'
 title = 'MCForge Blogtest'
-theme = "ananke"
+theme = "hugo-clarity"
