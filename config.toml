@@ -3,11 +3,6 @@ languageCode = 'en-us'
 title = 'MCForge Blogtest'
 theme = "mainroad"
 
-[Author]
-  name = "John Doe"
-  bio = "John Doe's true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it."
-
-
 [Params]
   description = "Minecraft Forge blogs" # Description of your site
   opengraph = true
@@ -20,8 +15,8 @@ theme = "mainroad"
 
 [Params.logo]
   image = "img/logo.svg"
-  title = "PANTS"
-  subtitle = "testssss" # Logo subtitle
+  title = "Forge Blog"
+  subtitle = "Regular updates from the team about the Project" # Logo subtitle
 
 [Params.sidebar]
   home = "right"   # Configure layout for home page
