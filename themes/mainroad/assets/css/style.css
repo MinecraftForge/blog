@@ -11,6 +11,10 @@
 	box-sizing: border-box;
 }
 
+html, body, .container--outer {
+	height: 100%;
+}
+
 article,
 aside,
 dialog,
@@ -62,17 +66,19 @@ body {
 .container {
 	position: relative;
 	width: 100%;
-	max-width: 1920px;
 	margin: 0 auto;
 }
 
 .container--outer {
+	display: flex;
+	flex-direction: column;
 	margin: auto;
 	box-shadow: 0 0 10px rgba(50, 50, 50, .17);
 }
 
 .wrapper {
 	padding: 25px;
+	flex-grow: 1;
 	background: #fff;
 }
 
@@ -1207,13 +1213,6 @@ textarea {
 
 .footer a:hover {
 	text-decoration: underline;
-}
-
-/* Media Queries */
-@media screen and (max-width: 1475px) {
-	.container--outer {
-		width: 95%;
-	}
 }
 
 @media screen and (max-width: 900px) {
