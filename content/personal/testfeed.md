@@ -6,6 +6,7 @@ categories:
 - Personal Blog
 author: cpw
 summary: This is the summary of the test post
+description: This is a test feed post
 ---
 This is a test feed post, does it work?
 
