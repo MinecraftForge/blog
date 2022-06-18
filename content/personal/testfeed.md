@@ -1,7 +1,7 @@
 ---
 title: "Test feed"
 date: 2022-06-18T10:54:19-04:00
-draft: true
+draft: false
 categories:
 - Personal Blog
 author: cpw
