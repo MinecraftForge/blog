@@ -1,0 +1,16 @@
+name: cpw
+bio: |
+    ## Hello.
+
+    The bio is markdown!
+    * this
+    * is
+    * a
+    * list
+
+    cpw contributes to the mod loading platform under forge, FML, as well as the systems that modify the game itself,
+    [ModLauncher](https://github.com/McModLauncher/ModLauncher) and associated projects.
+avatar: /img/authors/cpw.png
+social:
+    twitter: https://twitter.com/voxcpw
+    github: https://github.com/cpw
