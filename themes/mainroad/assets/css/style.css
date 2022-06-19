@@ -887,7 +887,11 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 
 .authorbox__socials {
 	margin-top: 10px;
-	max-width: 600px;
+	text-align: center;
+}
+
+.authorbox__socials > .widget-social__item {
+	display: inline-block;
 }
 
 /* List content */
