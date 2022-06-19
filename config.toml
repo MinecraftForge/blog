@@ -1,4 +1,4 @@
-baseURL = 'https://blogtest.minecraftforge.net/'
+baseURL = 'https://blog.minecraftforge.net/'
 languageCode = 'en-us'
 title = 'MinecraftForge Blog'
 theme = "mainroad"
