@@ -139,7 +139,7 @@ textarea {
 }
 
 .btn:hover {
-	color: #fff;
+	color: #26303d;
 	background: #e6b784;
 }
 
@@ -678,13 +678,13 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 .warning a,
 .authorbox__description a {
 	font-weight: 700;
-	color: #e6b784;
+	color: #26303d;
 }
 
 .content a:hover,
 .warning a:hover,
 .authorbox__description a:hover {
-	color: #e6b784;
+	color: #26303d;
 	text-decoration: underline;
 }
 
@@ -858,6 +858,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	line-height: 1.5;
 	border-top: 1px solid #ebebeb;
 	border-bottom: 1px solid #ebebeb;
+	max-width: 600px;
 }
 
 .authorbox__avatar {
@@ -875,6 +876,11 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	font-size: 16px;
 	font-size: 1rem;
 	font-weight: 700;
+}
+
+.authorbox__socials {
+	margin-top: 10px;
+	max-width: 600px;
 }
 
 /* List content */
