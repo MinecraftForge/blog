@@ -1,7 +1,7 @@
 ---
 title: "Forge Annual Parlay 2022"
 date: 2022-06-19T11:44:12-04:00
-draft: true
+draft: false
 categories:
 - Announcements
 author: cpw
