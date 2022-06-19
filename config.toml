@@ -1,10 +1,10 @@
 baseURL = 'https://blogtest.minecraftforge.net/'
 languageCode = 'en-us'
-title = 'MCForge Blogtest'
+title = 'MinecraftForge Blog'
 theme = "mainroad"
 
 [Params]
-  description = "Minecraft Forge blogs" # Description of your site
+  description = "MinecraftForge Blog" # Description of your site
   opengraph = true
   twitter_cards = true
   readmore = false # Show "Read more" button in list if true
@@ -15,7 +15,7 @@ theme = "mainroad"
 
 [Params.logo]
   image = "img/logo.svg"
-  title = "Forge Blog"
+  title = "Blog"
   subtitle = "Regular updates from the team about the Project" # Logo subtitle
 
 [Params.sidebar]
