@@ -884,6 +884,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 
 .authorbox__socials > .widget-social__item {
 	display: inline-block;
+	margin: 0 2px;
 }
 
 /* List content */
