@@ -152,7 +152,7 @@ Human-readable mappings are built against an intermediate mapping, to preserve n
 
 The notable exception to the above is Mojang mappings, as they are published in the form of obfuscated names to human-readable names. We regard them as human-readable mappings, but because they are not built against intermediate mappings, they don't neatly fit within our definition of human-readable mappings.
 
-Nevertheless, we will consider Mojang mappings as human-readable mappings. Tools often compensate for Mojang mappings by first remapping it to use the intermediate mappings of choice, then applying that combined mapping to the local environment.
+Nevertheless, we will primarily consider Mojang mappings as human-readable mappings. Tools often compensate for Mojang mappings by first remapping it to use the intermediate mappings of choice, then applying that combined mapping to the local environment.
 
 However, it should be noted that Mojang mappings can also perform the role of intermediate mappings, because their nature as the source names used by Mojang means they also solve both problems as solved by intermediate mappings -- cross-version stability and method name non-collision. In practice, there is no known modloader as of writing that uses Mojang mappings as their intermediary mappings.
 
