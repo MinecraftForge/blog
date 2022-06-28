@@ -1345,3 +1345,7 @@ textarea {
 		font-size: .6875rem;
 	}
 }
+
+.goat.svg-container {
+	max-width: 64em;
+}
