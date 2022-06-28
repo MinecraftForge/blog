@@ -39,6 +39,40 @@ These obfuscated names, while great for shrinking the size of Minecraft's jar fi
 
    Because of this, decompiling the obfuscated code without preprocessing leads to many compile errors due to methods sharing the same name and parameters, as the Java programming language disallows that.
 
+```goat
+     .----.                                         .----.         
+    | 1.16 +---.            .---------------.      | 1.16 +-.      
+     '-+--'    |\          |                |       '-+--'  |\     
+       | Level '-o-------->|                *-------->| bqb '-'    
+       |         |         |                |         |       |    
+       '---------'         |                |         '-------'    
+ - - - - - - - - - - - - - |                |- - - - - - - - - - - 
+     .----.                |                |       .----.         
+    | 1.17 +---.           |                |      | 1.17 +-.      
+     '-+--'    |\          |                |       '-+--'  |\     
+       | Level '-o-------->|                *-------->| bwp '-'    
+       |         |         |                |         |       |    
+       '---------'         |                |         '-------'    
+ - - - - - - - - - - - - - |                |- - - - - - - - - - - 
+     .----.                |                |       .----.         
+    | 1.18 +---.           |   Obfuscator   |      | 1.18 +-.      
+     '-+--'    |\          |   (ProGuard)   |       '-+--'  |\     
+       | Level '-o-------->|                *-------->| cad '-'    
+       |         |         |                |         |       |    
+       '---------'         |                |         '-------'    
+ - - - - - - - - - - - - - |                |- - - - - - - - - - - 
+   .-------------.         |                |    .----------.      
+  | int call(int) +------->|                *-->| int a(int) |     
+   '-------------'         |                |    '----------'      
+   .----------------.      |                |    .-------------.   
+  | int call(double) +---->|                *-->| int a(double) |  
+   '----------------'      |                |    '-------------'   
+   .-----------------.     |                |    .--------------.  
+  | UUID find(Thread) +--->|                *-->| UUID a(Thread) | 
+   '-----------------'     |              o |    '--------------'  
+                           '---------------'                       
+```
+
 As you can see, these drawbacks can impose difficulties on developers of mods and tools alike. That's why the developers of modding tools made an innovation which is the main topic of our post: *mappings*.
 
 ## It's Mappings All The Way Down
@@ -68,6 +102,26 @@ This fixes our third problem: because each method has a unique name, there shoul
 To solve that, we introduce a new step into the generation of these intermediate names: *carrying over intermediate names* from the previous version for unchanged classes, methods, and fields. This means that we only generate new intermediate names when we cannot figure out if a class, method, or field was kept unchanged from the previous version[^newnames].
 
 The process of carrying over intermediate names is called **matching**, since it involves matching intermediate names from previous versions to the classes, methods, and fields of new versions where possible and appropriate. MCPConfig uses the [JarAwareMapping tool or JAMMER][jammer] (and previously [DePigifier][depigifer]), while Fabric uses the [Matcher][matcher] tool.
+
+```goat
+                            .----.    .----.    .----.                              
+                            |    |\   |    |\   |    |\                             
+                            |  A '-'  |  C '-'  |  D '-'                            
+                            |      |  |      |  |      |                            
+                            '--o---'  '--o---'  '--o---'                            
+.----------------------.        '--------+--------'      .----------------------.   
+| IntMap v1            |\                |               | IntMap v2            |\  
+| .---.   .---.   .---.| \               v               | .---.   .---.   .---.| \ 
+| | A |   | B |   | C |'--'        .-------------.       | | A |   | C |   | D |'--'
+| '-+-'   '-+-'   '-+-'   |       | Intermediate |       | '-+-'   '-+-'   '-+-'   |
+|   |       |       |     +------>|  Mappings    *------>|   |       |       |     |
+|   v       v       v     |       |  Matcher   o |       |   v       v       v     |
+| .---.   .---.   .---.   |       '-------------'        | .---.   .---.   .---.   |
+|| c_1 | | c_2 | | c_3 |  |   Class A and C get their    || c_1 | | c_3 | | c_4 |  |
+| '---'   '---'   '---'   |   existing IDs while         | '---'   '---'   '---'   |
+'-------------------------'   class D gets a new ID.     '-------------------------'
+                                                                                    
+```
 
 For example, let's say the class representing the world was named `bwp`, in 1.17, and named `cad` in 1.18. Even though the obufscated name is different across both versions, the SRG name for both is still `C_1596_`, as these classes were unchanged enough between each version that we recognize them as being the same class, conceptually.
 
@@ -112,6 +166,35 @@ Each type of mappings is overlaid on top of each other to provide the mappings u
 
 - For the production environment, we simply overlay the intermediate names on top of the obfuscated names, so it works in *intermediate names*. Users don't use the human-readable mappings as they're usually not visible to them (except for crash reports or logging files).
 - For the development environment, we take the intermediate names from the production environment and overlay the human-readable names on top, so it works in *human-readable names*. This means the developers can work with names they can understand and comfortably work with, both in their IDE and when reading their logging files for debugging purposes.
+
+```goat
+.------------------------------------------------------------------.     --.  --.               
+|                         Obfuscated Names                         |        |    |              
+'-------------+------------------+-----------------+----------+----'        |    +-----------.  
+              |                  |                 |          |             |   | Production  | 
+   .- --- --- | --- --- --- ---  | --- --- --- --- | --- --- -|-.           |   | environment | 
+  |           v                  v                 v          |  |          |    +-----------'  
+    .------------------. .--------------. .----------------.  |             |    | (includes    
+  | |                  | |              | |                |  |  |          |    |  obfuscated &
+    | MCPConfig or SRG | | Intermediary | | Hashed Mojmap  |  |             |    |  intermediate
+  | |                  | |              | |                |  |  |          |    |  layers)     
+    '---------+--------' '-------+------' '--------+-------'  v             |    |              
+ .------------+--------.         |                 |        .-----------.   |    |              
+| Intermediate Mappings |-- ---  + --- --- --- --- + --- ---|           |   |    |              
+ '------------+--------'         |\                |\       |  Mojang   |   |    |              
+              +------------------)-+---------------)-+----->| (Mojmaps) |   | --'               
+   .- --- --- | --- --- --- ---  | --- --- --- --- | --- ---|           |   +-----------.       
+  |           v                  v                 v        '-----------'  | Development |      
+    .------------------. .--------------. .----------------.               | environment |      
+  | |                  | |              | |                |     |          +-----------'       
+    |  MCP or MCPBot   | |     Yarn     | | Quilt Mappings |                | (includes         
+  | |                  | |              | |                |     |          |  obfuscated,      
+    '------------------' '--------------' '----------------'                |  intermediate, &  
+ .-----------------------.                                       |          |  human-readable   
+| Human-readable Mappings |  --- --- --- --- --- --- --- --- ---'           |  layers)          
+ '-----------------------'                                                  |                   
+                                                                        ---'                    
+```
 
 The production environment's intermediate mappings are installed onto your Minecraft instance when you install a modloader like Minecraft Forge or Fabric. They take the original Minecraft jar from your computer and remap it in place[^inplace] from its original obfuscated mappings to the intermediate mappings of the modloader's choice.
 
