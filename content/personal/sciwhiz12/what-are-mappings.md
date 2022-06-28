@@ -168,32 +168,35 @@ Each type of mappings is overlaid on top of each other to provide the mappings u
 - For the development environment, we take the intermediate names from the production environment and overlay the human-readable names on top, so it works in *human-readable names*. This means the developers can work with names they can understand and comfortably work with, both in their IDE and when reading their logging files for debugging purposes.
 
 ```goat
-.------------------------------------------------------------------.     --.  --.               
-|                         Obfuscated Names                         |        |    |              
-'-------------+------------------+-----------------+----------+----'        |    +-----------.  
-              |                  |                 |          |             |   | Production  | 
-   .- --- --- | --- --- --- ---  | --- --- --- --- | --- --- -|-.           |   | environment | 
-  |           v                  v                 v          |  |          |    +-----------'  
-    .------------------. .--------------. .----------------.  |             |    | (includes    
-  | |                  | |              | |                |  |  |          |    |  obfuscated &
-    | MCPConfig or SRG | | Intermediary | | Hashed Mojmap  |  |             |    |  intermediate
-  | |                  | |              | |                |  |  |          |    |  layers)     
-    '---------+--------' '-------+------' '--------+-------'  v             |    |              
- .------------+--------.         |                 |        .-----------.   |    |              
-| Intermediate Mappings |-- ---  + --- --- --- --- + --- ---|           |   |    |              
- '------------+--------'         |\                |\       |  Mojang   |   |    |              
-              +------------------)-+---------------)-+----->| (Mojmaps) |   | --'               
-   .- --- --- | --- --- --- ---  | --- --- --- --- | --- ---|           |   +-----------.       
-  |           v                  v                 v        '-----------'  | Development |      
-    .------------------. .--------------. .----------------.               | environment |      
-  | |                  | |              | |                |     |          +-----------'       
-    |  MCP or MCPBot   | |     Yarn     | | Quilt Mappings |                | (includes         
-  | |                  | |              | |                |     |          |  obfuscated,      
-    '------------------' '--------------' '----------------'                |  intermediate, &  
- .-----------------------.                                       |          |  human-readable   
-| Human-readable Mappings |  --- --- --- --- --- --- --- --- ---'           |  layers)          
- '-----------------------'                                                  |                   
-                                                                        ---'                    
+       .------------------------------------------------------------------.     --.  --.               
+       |                         Obfuscated Names                         |        |    |              
+       '-------------+------------------+-----------------+----------+----'        |    |              
+                     |                  |                 |          |             |    +-----------.  
+ .------------.      |                  |                 |          |             |   | Production  | 
+| Intermediate | --- | --- --- --- ---  | --- --- --- --- | ---  --- |-.           |   | environment | 
+|   Mappings   |     |                  |                 |          |  |          |    +-----------'  
+ '------------'      v                  v                 v          |             |    |
+         | .------------------. .--------------. .----------------.  |  |          |    | (includes    
+           |                  | |              | |                |  |             |    |  obfuscated &
+         | | MCPConfig or SRG | | Intermediary | | Hashed Mojmap  |  |  |          |    |  intermediate
+           |                  | |              | |                |  |             |    |  layers)     
+         | '---------+--------' '-------+------' '--------+-------'  v  |          |    |              
+                     |                  |                 |        .-----------.   |    |              
+         |           |                  |                 |        |           |   |    |              
+          '- --- --- | --- --- --- ---  + --- --- --- --- + --- ---|           |   |    |              
+                     |                  |                 |        |  Mojang   |   |    |              
+ .--------------.    +                  +                 +        | (Mojmaps) |   | --'               
+| Human-readable |-- |\--- --- --- ---  |\--- --- --- --- |\--- ---|           |   |                   
+|    Mappings    |   | '----------------)-+---------------)-+----->|           |   +-----------.       
+ '--------------'    v                  v                 v        '-----------'  | Development |      
+           .------------------. .--------------. .----------------.               | environment |      
+         | |                  | |              | |                |     |          +-----------'       
+           |  MCP or MCPBot   | |     Yarn     | | Quilt Mappings |                | (includes         
+         | |                  | |              | |                |     |          |  obfuscated,      
+           '------------------' '--------------' '----------------'                |  intermediate, &  
+         |                                                              |          |  human-readable   
+          '- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --'           |  layers)          
+                                                                               ---'                   
 ```
 
 The production environment's intermediate mappings are installed onto your Minecraft instance when you install a modloader like Minecraft Forge or Fabric. They take the original Minecraft jar from your computer and remap it in place[^inplace] from its original obfuscated mappings to the intermediate mappings of the modloader's choice.
