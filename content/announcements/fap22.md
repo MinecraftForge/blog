@@ -24,3 +24,8 @@ This year we have many changes to discuss.
 Discuss in the #fap22 channel on the [forge discord](https://discord.minecraftforge.net/)
 
 Questions can be submitted via the [anonymous google form here](https://forms.gle/VjvZyZNUWhyeoEt3A)
+
+Edit:
+The 2022 FAP is now concluded. Watch the video here
+
+{{< twitch video=1520604425 >}}
