@@ -1,7 +1,7 @@
 ---
 title: "Forgejam 2022"
 date: 2022-07-02T20:46:42+01:00
-draft: true
+draft: false
 categories:
 - Announcements
 author: curle
