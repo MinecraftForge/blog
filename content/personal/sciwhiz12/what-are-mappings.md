@@ -27,7 +27,7 @@ These obfuscated names, while great for shrinking the size of Minecraft's jar fi
 
 2. As these names are generated for each published version, obfuscated names usually change between each and every new version. This is highly disorienting when porting a mod from the previous version to the next, as the names may now be linked to wildly different classes between those versions.
 
-   For example, the class representing the world may be named `bqb`, `bwp`, `cad`, and `cga` across multiple versions[^versions].
+   For example, the class representing the world where blocks and entities reside in may be named `bqb`, `bwp`, `cad`, and `cga` across multiple versions[^versions].
 
 3. In Java, multiple methods may share the same name, as long as their signatures (basically the method's parameters) are different -- a feature called [method (or function) overloading][overloading]. For example, one can define the methods `int add(int a, int b)` and `long add(long a, long b)` in the same class, and you can call either of them as long as you have the right parameters[^overloadcasting].
 
@@ -123,7 +123,7 @@ The process of carrying over intermediate names is called **matching**, since it
                                                                                     
 ```
 
-For example, let's say the class representing the world was named `bwp`, in 1.17, and named `cad` in 1.18. Even though the obufscated name is different across both versions, the SRG name for both is still `C_1596_`, as these classes were unchanged enough between each version that we recognize them as being the same class, conceptually.
+For example, let's say the class representing the world where blocks and entities reside in was named `bwp`, in 1.17, and named `cad` in 1.18. Even though the obufscated name is different across both versions, the SRG name for both is still `C_1596_`, as these classes were unchanged enough between each version that we recognize them as being the same class, conceptually.
 
 Now, thanks to intermediate mappings, we've solved two of our problems:
 
@@ -144,7 +144,7 @@ For Minecraft versions 1.16 and below, there was a community-sourced mappings se
 
 Other notable examples of human-readable mappings include Fabric's [Yarn][yarn] and Quilt's [Quilt Mappings][quilt-mappings].
 
-As an example of Mojang mappings in action, we go back to our trusty example. The class representing the world would be named `cad` in obfuscated mappings and `C_1596_` in SRG mappings; neither of the names impart the purpose of the class to the reader. In Mojang mappings, the class is named `Level`, which does communicate what the class is. Another example: an obfuscated name of `gh` and SRG name of `C_4675_` has the corresponding Mojang name of `BlockPos`, which tells us that it is a class that represents the position of a block.
+As an example of Mojang mappings in action, we go back to our trusty example. The class representing the world where blocks and entities reside in would be named `cad` in obfuscated mappings and `C_1596_` in SRG mappings; neither of the names impart the purpose of the class to the reader. In Mojang mappings, the class is named `Level`, which does communicate what the class is. Another example: an obfuscated name of `gh` and SRG name of `C_4675_` has the corresponding Mojang name of `BlockPos`, which tells us that it is a class that represents the position of a block.
 
 ### The Mojmaps Exception
 
