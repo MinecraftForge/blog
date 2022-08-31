@@ -1,7 +1,7 @@
 ---
 title: "Forge Jam 2022 Results"
 date: 2022-08-31T18:12:53+01:00
-draft: true
+draft: false
 categories: 
 - Announcements
 author: curle
