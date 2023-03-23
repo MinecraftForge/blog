@@ -11,7 +11,7 @@ theme = "mainroad"
   authorbox = true
   pager = true
   post_meta = ["author", "date", "categories"] # Order of post meta information
-  mainSections = ["releases", "personal", "announcements"]
+  mainSections = ["releases", "personal", "announcements", "breaking"]
 
 [Params.logo]
   image = "img/logo.svg"
