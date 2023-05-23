@@ -8,6 +8,7 @@ author: matyrobbrt
 summary: "Let's talk about OptiFine and alternatives for it!"
 description: "OptiFine is known for breaking modded environments. In this post, we'll talk about some alternatives to it."
 ---
+### Note: these mods are not officially supported nor endorsed by Forge!
 
 OptiFine has started as a simple optimization mod for Minecraft. However, over the years, it has had more features implemented, its stability has been gradually decreasing and the amount of issues it has caused modders have... increased substantially.
 
