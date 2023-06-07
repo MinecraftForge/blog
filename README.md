@@ -1,3 +1,3 @@
 # Blog Forge
 
-Link:https://blog.minecraftforge.net/
+Link: https://blog.minecraftforge.net/
