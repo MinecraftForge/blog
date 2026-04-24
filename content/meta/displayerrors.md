@@ -18,6 +18,7 @@ Remember, if you can't run the vanilla game using the vanilla launcher, we can't
 2. If you can run the vanilla game, but can't run Forge, you may need to turn off
 the fancy early loading display. To do so, find your minecraft game folder, and
 edit the config/fml.toml file. Change the "splashscreen" line from `splashscreen=true` to `splashscreen=false`
+and/or the `earlyWindowProvider` line to `earlyWindowProvider="none"` depending on which version of Forge you're running.
 Make sure you come discuss your problem on the forge forums or discord, because this shouldn't be
 necessary.
 
